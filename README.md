@@ -5,6 +5,5 @@ This project applies causal inference methods to Magic: The Gathering draft data
 The dataset can be found here: 
 https://17lands-public.s3.amazonaws.com/analysis_data/draft_data/draft_data_public.FDN.PremierDraft.csv.gz
 
-
-
+I have uploaded an output of git log command to document who made commits to the code and when.
 
