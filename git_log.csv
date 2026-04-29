@@ -1,0 +1,138 @@
+8c0aca9,Jackson Lipfert,2026-04-27,add post matching 54wr and 62wr
+f992573,Jackson Lipfert,2026-04-27,add T2 62 WR csv
+930a10c,Jackson Lipfert,2026-04-27,add t2 54wr data
+1e631fc,Jackson Lipfert,2026-04-27,add figures file
+83ccea1,Jackson Lipfert,2026-04-27,add results dfs for 56 58 and 60
+da6e4c9,Jackson Lipfert,2026-04-27,add t2 56 wr data
+6a422cb,Jackson Lipfert,2026-04-27,add t2 60 wr
+0345518,Jackson Lipfert,2026-04-27,add better graphs and create T2 58% csv
+1dceb58,Jackson Lipfert,2026-04-24,add confidence intervals and plot
+64c8403,Jackson Lipfert,2026-04-24,add t2 outputs
+281af52,Jackson Lipfert,2026-04-24,even bigger pre matching
+efac125,Jackson Lipfert,2026-04-24,bigger pre matching
+ce8b598,Jackson Lipfert,2026-04-24,save
+80f0334,Jackson Lipfert,2026-04-24,refine pre_matching_df output
+63cedc9,Jackson Lipfert,2026-04-24,add unmatched treatment vs control
+fdf54e0,Jackson Lipfert,2026-04-24,add color identity to matching
+920cb77,Jackson Lipfert,2026-04-24,save
+3fc3078,Jackson Lipfert,2026-04-23,maybe fix the matching?
+502a2f6,Jackson Lipfert,2026-04-23,add pick_color to data frame
+d6d1b17,Jackson Lipfert,2026-04-23,save
+c8161fa,Jackson Lipfert,2026-04-22,add color identity
+d8fdab7,Jackson Lipfert,2026-04-22,add bigger treatment df
+3e22183,Jackson Lipfert,2026-04-21,save
+8f44f23,Jackson Lipfert,2026-04-21,get pretty big pre matching df
+6870df3,Jackson Lipfert,2026-04-21,fix f string
+32f13cd,Jackson Lipfert,2026-04-21,Get treatment loop working
+cdca84a,Jackson Lipfert,2026-04-21,add pre_matching_df.csv
+bcc4f92,Jackson Lipfert,2026-04-21,add compute treatment file
+0ed1b89,Jackson Lipfert,2026-04-21,add treatment loop lets fucking go
+5c6c263,Jackson Lipfert,2026-04-21,save
+143d33f,Jackson Lipfert,2026-04-21,start on small_df for eventual export
+54f39a6,Jackson Lipfert,2026-04-21,check means
+d3b97fc,Jackson Lipfert,2026-04-21,add wins and losses to final df but don't match on it
+aa571ad,Jackson Lipfert,2026-04-21,Match on mean and var
+35efe12,Jackson Lipfert,2026-04-21,add new function for getting color identity
+17d0d92,Jackson Lipfert,2026-04-21,fix control
+c41e31a,Jackson Lipfert,2026-04-21,save
+55f5cbb,Jackson Lipfert,2026-04-20,save
+1ebcf80,Jackson Lipfert,2026-04-20,save
+b199c40,Jackson Lipfert,2026-04-20,Add packs ahead of ALSA logic to assign_treatment
+4c9ff4d,Jackson Lipfert,2026-04-20,start tinkering with treatment
+d6ed1df,Indigo Khanna,2026-04-16,Expanded treatment to all packs and picks, wrote to outputs
+df98a03,Jackson Lipfert,2026-04-16,Merge branch 'main' of https://github.com/IndigoKhanna/Draft-Decisions-Casual-Inference
+005f1ef,Jackson Lipfert,2026-04-16,test covariate balance
+8f59d1c,Jackson Lipfert,2026-04-16,add code to plot covariates
+fc84c7c,Jackson Lipfert,2026-04-16,add HW3 covariate cells
+36189b2,Indigo Khanna,2026-04-15,Added 54% win rate file (actually this time)
+3eef619,Indigo Khanna,2026-04-15,Added 54% win rate subset
+c0bcccc,Jackson Lipfert,2026-04-15,fix error in get_cards_in_pack, finish new assign_treatment
+20d31f5,Jackson Lipfert,2026-04-15,start working on assign_treatment
+32ca699,Jackson Lipfert,2026-04-09,save
+1ea2162,Jackson Lipfert,2026-04-09,add color pool logic to assign_treatment, change treatment logic to pick best card
+8f2ba71,Jackson Lipfert,2026-04-09,finish color indentity func
+a9166ed,Jackson Lipfert,2026-04-09,get info for cards previously picked
+af45c09,Jackson Lipfert,2026-04-09,add get_previous_picks function
+b491a83,Jackson Lipfert,2026-04-09,start color identity function
+7d89844,Jackson Lipfert,2026-04-09,first commit
+0a5192e,Jackson Lipfert,2026-04-09,save
+f483ae6,Jackson Lipfert,2026-04-08,save
+670fc11,Jackson Lipfert,2026-04-08,Add scaling to KNN, fix bug
+1a8fe18,Jackson Lipfert,2026-04-08,Clean up, add pick_limit to assign_treatment, import standard scaler
+0369fe1,Jackson Lipfert,2026-04-08,fix KNN and add instrument to matched df
+e02bfba,Jackson Lipfert,2026-04-08,clean up feature definition
+cae7986,Jackson Lipfert,2026-04-07,first commit
+4fb3711,Jackson Lipfert,2026-04-07,add color logic to assign_treatment, currently not used as we don't have color pool info yet
+9490f3f,Jackson Lipfert,2026-04-07,add instrument assignment to assign_treatment
+f6df4a5,Jackson Lipfert,2026-04-07,Get assign_treatment working with guard clause
+e73f6b2,Jackson Lipfert,2026-04-07,refactor assign_treatment to use cards not mean ALSA
+64220c7,Jackson Lipfert,2026-04-07,fix column name change bug
+7b14524,Jackson Lipfert,2026-04-07,save
+7850c97,Jackson Lipfert,2026-04-07,refactor cards in pack functions
+a570e16,Jackson Lipfert,2026-04-07,save
+cdea2c1,Jackson Lipfert,2026-04-06,add comments
+1035813,Jackson Lipfert,2026-04-06,start work on the 'picked_strongest' feature
+9ea783c,Jackson Lipfert,2026-04-06,add min ALSAs to function
+dc265b0,Jackson Lipfert,2026-04-06,save
+1a90394,Jackson Lipfert,2026-04-03,Add ALSA variance as feature for matching
+86193a5,Jackson Lipfert,2026-04-01,add info
+8749834,Jackson Lipfert,2026-03-31,Add matching based on propensity score
+a67836c,Jackson Lipfert,2026-03-31,Add propensity scores
+8328a06,Jackson Lipfert,2026-03-31,Clean up
+1ae4973,Jackson Lipfert,2026-03-31,Finish first pass of matching
+5ae8e63,Jackson Lipfert,2026-03-30,Start matching, still need to do it draft wise and not row wise
+5184b0b,Jackson Lipfert,2026-03-30,Stuck on imputing values for nans
+09fcbdf,Jackson Lipfert,2026-03-30,Get treatment draft ids
+3dd9395,Jackson Lipfert,2026-03-30,outline
+216ccbd,Jackson Lipfert,2026-03-30,Add treatment assignment
+100ff16,Jackson Lipfert,2026-03-30,clean up apply
+e19e45c,Jackson Lipfert,2026-03-30,saving
+c28820a,Jackson Lipfert,2026-03-30,Merge branch 'matching' of https://github.com/IndigoKhanna/Draft-Decisions-Casual-Inference into matching
+6cdd99c,Jackson Lipfert,2026-03-30,Get ALSA for each pack in the draft_df
+71c4f2c,Indigo Khanna,2026-03-29,Re adding stuff from merge nightmare
+aeb3bf0,Indigo Khanna,2026-03-29,Merge branch 'matching' of https://github.com/IndigoKhanna/Draft-Decisions-Casual-Inference into matching
+cb6437b,Indigo Khanna,2026-03-28,Started formatting the color strength stuff in Matching
+8b26c6c,Jackson Lipfert,2026-03-27,Saving, currently stuck thinking about next steps
+289d95a,Jackson Lipfert,2026-03-27,Group by color and take mean ALSA
+c08700a,Jackson Lipfert,2026-03-25,Get ALSA and Color for cards in pack
+cad9746,Jackson Lipfert,2026-03-25,Write get_cards_in_pack function
+86dd680,Jackson Lipfert,2026-03-25,Merge ALSA into card data
+84cf1e7,Jackson Lipfert,2026-03-25,add data from inputs
+e0c626c,Indigo Khanna,2026-03-25,Added the ALSA output as a csv
+af5728c,Jackson Lipfert,2026-03-25,Add ALSA export to CSV
+8c73299,Jackson Lipfert,2026-03-25,Merge branch 'main' into matching
+5ef99de,Indigo Khanna,2026-03-24,Alsa update
+11a3df5,Indigo Khanna,2026-03-24,Clarified Alsa reasoning in comments
+00248cf,Indigo Khanna,2026-03-24,Added ALSA calculation
+1e69a58,Indigo Khanna,2026-03-24,Alsa Calculating
+1c5b47f,Indigo Khanna,2026-03-24,Added the 17lands calculated ALSAs
+ed24c05,Jackson Lipfert,2026-03-24,create matching branch
+58b9e4e,Indigo Khanna,2026-03-18,Edited Proposal
+694eca3,Jackson Lipfert,2026-03-18,Add final draft for project proposal
+5951e1b,Indigo Khanna,2026-03-18,Updated Proposal
+ffab221,Indigo Khanna,2026-03-18,Updated Proposal
+24632e7,Indigo Khanna,2026-03-16,Updated Proposal
+8a00b16,Indigo Khanna,2026-03-16,Update proposal again
+1233a73,Indigo Khanna,2026-03-16,Updated Proposal
+82add4b,Jackson Lipfert,2026-03-14,save
+3831cf8,Jackson Lipfert,2026-03-14,Add another paper
+b398bee,Jackson Lipfert,2026-03-14,Add paper to bibliography
+c0444b6,Jackson Lipfert,2026-03-14,add 3 citations
+042fd4b,Jackson Lipfert,2026-03-14,needs analysis first draft
+3636bca,Jackson Lipfert,2026-03-14,problem statement first draft
+d1fe849,Jackson Lipfert,2026-03-14,start proposal
+6a28608,Jackson Lipfert,2026-03-05,Merge pull request #1 from IndigoKhanna/import_data
+d005d1b,Jackson Lipfert,2026-03-05,create fdn_small.csv
+9aaa91d,Jackson Lipfert,2026-03-05,create import and clean file
+87420de,Jackson Lipfert,2026-03-04,Merge branch 'main' of https://github.com/IndigoKhanna/Draft-Decisions-Casual-Inference
+7f2a211,Jackson Lipfert,2026-03-04,add more todos
+6c9cf59,Indigo Khanna,2026-03-04,Added foundations reasoning to readme
+ce655f9,Jackson Lipfert,2026-03-04,Merge branch 'main' of https://github.com/IndigoKhanna/Draft-Decisions-Casual-Inference
+1491b07,Jackson Lipfert,2026-03-04,add more todos
+8bdc65a,Jackson Lipfert,2026-03-04,add todos
+ccd16d9,Indigo Khanna,2026-03-04,Added proposal format
+c19749a,Indigo Khanna,2026-03-04,Merge branch 'main' of https://github.com/IndigoKhanna/Draft-Decisions-Casual-Inference
+5e8d4e7,Indigo Khanna,2026-03-04,Added Proposal File
+b77e493,Jackson Lipfert,2026-03-04,save
+ae87450,Jackson Lipfert,2026-03-04,create Data_Processing file
+b9bbdad,Indigo Khanna,2026-03-04,Initial commit
