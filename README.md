@@ -1,24 +1,10 @@
 # Draft-Decisions-Casual-Inference
-A UVM 6990 Final Project finding causes for variations in winrates in limited formats
 
+This project applies causal inference methods to Magic: The Gathering draft data to estimate the effect of being passed a and taking a signal-level card outside of one's color on average games won.
 
---Stuff To Do--
-
-Data Processing:
--pick a format and download the dataset
--load dataset
--filter to valid drafts 
-    -either 7 wins or 3 losses
-    -full drafts (42 picks I think?)
--compute ALSA of cards
--compute win rates of players
--create a metric of color openness
--match based on win rate and color openness with treatment as pick k best card
+The dataset can be found here: 
+https://17lands-public.s3.amazonaws.com/analysis_data/draft_data/draft_data_public.FDN.PremierDraft.csv.gz
 
 
 
-
-Treatment is what you see at the kth card, stratify based on player skill bracket and quality of card you see 
-
-Data set is Foundations, due to both a relative lack of synergistic subthemes (a focus on raw card power level) and the presence of relatively few multicolor cards/archetypes
 
