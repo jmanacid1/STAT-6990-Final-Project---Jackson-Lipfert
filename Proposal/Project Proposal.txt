@@ -1,0 +1,77 @@
+Problem Statement:
+    Drafting in Magic the Gathering requires skill and luck. Much studied is the decision of which cards are advantageous picks, but less has been said about how the cards passed to you shape the draft. 
+	We plan to assess the effect of seeing highly desirable cards at different stages of the draft. This is a methods-centric project, as we seek to apply various casual inference techniques to approach the question of interest. We will stratify based on player win rate (a proxy for skill), match on the cumulative alsa of previous picks (a proxy for how good the players draft was prior to seeing the card), and we plan to do mediation analysis on whether the high desirability cards were taken by the player. 
+	
+
+Dataset:
+    The dataset comes from 17lands.com, a popular Magic Arena add on that allows users to track their drafts and games. The addon collects data about which cards were taken in draft, the win rates of players, and statistics about individual card performance such as games in hand win rate, win rate when drawn, 'average last seen at' (ALSA), and much more. Each draft format (each combination of set and event format) has its own dataset, usually with several hundred thousand rows, each row being a card taken during a draft (full drafts have 42). 
+
+The most relevant variables for this analysis are:
+* Event wins and losses, the outcome results of the draft
+* Pick number, used to compute card ALSA, the desirability of a card
+* Card picked, the action taken by the player. The card picked can then be linked to further attributes, such as color or type.
+
+   Our treatment will be seeing a card of a non-drafted color at the kth pick in the draft with an ALSA of n. This describes a situation where a player sees a powerful card and must evaluate whether it is powerful enough to justify changing their strategy up until this point to accommodate it.
+
+    This project will be done in python. We will have to recreate the metrics used by 17lands, namely ALSA. Thankfully, 17lands provides a set of helper files that we will use to guide our coding. 
+       To account for the varying cards and power level of each color seen in each pack (a random factor that is likely to be a significant confounder if not accounted for), we will create an aggregate metric using ALSA that will quantify the strength of each color seen in any given pack. This will allow us to match drafts that contain cards of roughly equal desirability.
+    We will then determine the distribution of highest desirability card over the course of all picks for all drafts. This distribution allows us to determine when a draft contains a card significantly above baseline at a given pick, this will be our treatment condition. For the actual causal inference, we will use both stratification and matching to control for player skill and draft quality. We will conduct a mediation analysis on if the treatment card was picked by the drafter. 
+     
+Related Work:
+    Magic Numbers Podcast - much of the work relevant to our project comes from a man by the name of Sierkovitz. His podcast 'Magic Numbers' uses 17lands data to analyze limited formats and give strategy advice. His work doesn't touch on causal inference methodologies and focuses more on finding correlations. However, as a podcast, each episode is roughly an hour long, causing the breadth of discussion to be large. Below are a selection of episodes with the most relevant main topics:
+* Luck and Skill in Draft: https://www.youtube.com/watch?v=WClAgz2YLEs 
+       The main topic (38:22) of this episode is sources of luck and skill in drafts. He begins by mentioning the importance of event structure (pod, league drafts, etc) on determining this. Closed pods will have much less ‘luck’ in the sense that every player had the same (power level) pool to work with. This is important to mention for this project, as it would be ideal to use data from pods. However, Magic Arena does not heavily support pod drafting, as it can be unwieldy to force players to wait for rounds or stick around for a set (long) time on what is a largely casual platform. Sierkovitz mitigates this issue in analysis by stratifying pool power into ten bins based on average card winrate of the pool. This approach isn’t perfect, it doesn’t account for any factors of power level other than win rate (e.g. a pool containing multiples of a card that only has a high winrate in multiples, or containing multiples of a card has a high winrate only not in multiples), but it is a useful starting point when accounting for variance. Sierkovitz uses this stratification to create and evaluate several metrics for skill throughout the episode.
+	When stratifying by pool strength and overlaying outcome (48:26), Sierkovitz stumbles upon what he thinks is a good demonstartion of the effect skill, where the highest power (highest avg card winrate) pools very closely match that average card winrate, but the lower power pools do not, increasingly so. This is due to higher power pools being easier (more straightforward) to draft, and lower ones requiring more skill to navigate. This effect isn’t necessarily relevant to this project, but it is an interesting factor to consider. 
+* Data Story: Openness and negative space win rate: https://www.youtube.com/watch?v=En36jEEwcE8 
+In this episode, Sierkovitz talks about his process for data analysis for new questions. While doing so, he touches on color strength, suggesting a proxy of number of cards in said color with a win rate above a certain threshold (He uses 56%, but acknowledges this is arbitrary). He also mentions the effects of pack on picks (taking multicolor cards is more common in pack 1, taking fixing is more common in pack 3), suggesting that perhaps this is worth accounting for.
+       One of the two main topics in this episode is color openness, which is a primary interest to this project. Sierkovitz helpfully gives a few concrete metrics for a signal. These metrics seem to be largely his own conjecture rather than a settled matter, but they are useful points of reference to improve upon. The first metric is defined as the number of useful (WR>55%) cards you see in that color at a given moment, compared that to the expected number at this point (Sierkovitz uses a threshold of the seen number being 40th percentile or below in the expected distribution. It’s unclear what his reasoning is for what is a relatively weak threshold). He also defines the point at which signals start being meaningful as p1p11, which may be worth incorporating. The second openness metric he suggests is a sort of ALSA residual (actual pick time – ALSA). He then sums this value for all cards in the drafted deck and takes the average. The logic is then that the lower this average (the more cards were picked earlier than they “should” be, indicating you did not have the option of picking them later), the less open that color/archetype was. Sierkovitz found that this metric had a clear relationship with win rate (25:44), although whether this was because it was a proxy for being in an open color or something else (such as card evaluation skill) was unclear. He helpfully points out a few minutes later (28:20) that openness has a very weak relationship with win rate (at least compared to raw deck power), so such a clear relationship would not be expected if it only measured openness. Sierkovitz explains this as power being conditional on openness (drafting a more open color causes your deck to be more powerful, more often, so the effect is in frequency of the cells in his table). This is a plausible conjecture, but he does not support it with any additional evidence.   
+       The second main topic of this episode is calculating the effect on win rate of cards not being in your deck (1 copy vs 0). His primary aim with this was to identify the most ‘important’ cards in (each color pair in) a set to be in your deck, which is much less relevant to this project than the first main topic.
+* Reading Draft Signals: https://www.youtube.com/watch?v=GeZFlfWx_J0
+	This episode defines and discusses what draft signals (21:55) are. It covers topics including range, strength, specificity, prior information, and variance of signals. It also discusses how to read them, accounting for personal bias when doing so, and how to predict and react to the rest of the draft.  This is a very powerful reference for understanding the dynamics of drafts, which is a prerequisite for doing analysis on this topic, but for the most part is not directly relevant to this project.
+
+
+    AI solutions for drafting in Magic: The Gathering: https://ieeexplore.ieee.org/abstract/document/9619100?casa_token=zgGWuDXUdkMAAAAA:8P4X0Qn70dUXaD-ydtQHfhaiUyk9h9BiKJ9AQK_e36QJ6Hp8qm1M0lgyl1M4beNSNlCrCwvoO0s 
+This paper uses simulated draft data to train a variety of drafting AI agents. Their work came before 17landsdatasets became available, hence the use of simulated data. Their work also focused on the accuracy of their AI agents, rather than trying to determine causal relationships between cards opened and win rate. 
+
+    The Intelligence of Player Habits and Reflexivity in Magic: The Gathering Arena Limited Draft: https://www.tandfonline.com/doi/pdf/10.1080/0969725X.2023.2216545 
+This paper discusses habits, intelligence, and reflexivity in magic players. Zhu focuses on the question on what combination of critical evaluation, knowledge of larger concepts, and learned habits magic players apply while drafting. He mentions 17lands and the cumulative factors that go into making a pick at a given point, but this is largely contained to one section (“the limited format” on 40-41) and serves to explain drafting as a whole, not analyze those decisions.
+
+
+Needs assessment / Plan of action / Timeline:
+
+Potential pitfalls:
+
+    The biggest gap we currently have is how to conduct a mediation analysis in python. We will have to learn how to do this if we want to mediate on players picking the highest desirability card. While we can still answer our main question without a mediation analysis, doing so would make the generalizability of our findings much lower as players often do pick the highest desirability cards when they see them. 
+
+    Another problem we could run into is difficulty during the matching process. Our datasets contain a lot of observations but our strategy to match based on draft quality is not an established practice and could introduce bias. It is also possible that drafts are so heterogeneous that matching across the quality of all five colors will require suboptimal matches. In any case, the way we match treatment and control observations will be unexplored territory.
+
+Group Plan:
+This project will be managed as a GitHub with multiple contributors. The repository can be found here (although it is currently private).
+
+
+Timeline: 
+
+The following timeline contains key dates for the project:
+
+03/17: Submit Proposal and begin data work (especially matching)
+
+Week 1 (03/18-03/25): Matching and constructing measures (alsa, etc), 
+
+Week 2 (03/25-04/01): Answer the research question
+
+Week 3 (04/01-04/08): Answer the research question
+
+Week 4 (04/08-04/15): Put together a report and presentation
+
+Week 5 (04/15-04/22): Put together a report and presentation
+
+Dawn of the final day (04/22-04/29): Finalize report and practice a presentation
+
+04/29: 15 minute presentation and 8-20 page report due
+
+
+
+Causal Inference—Final Project Proposal
+[names]
+
+
